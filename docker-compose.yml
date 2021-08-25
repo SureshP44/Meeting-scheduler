@@ -1,0 +1,18 @@
+version: "3"
+services:
+  web:
+    image: suresha52/commontimetomeet:4
+    build: .
+    ports: 
+      - 9000:9000
+    depends_on: 
+      - "mongodb"
+  mongodb:
+    container_name: mongodb
+    image: suresha52/mongo:0
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+    ports: 
+      - 27017:27017
+
